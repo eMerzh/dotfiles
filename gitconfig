@@ -1,0 +1,16 @@
+[user]
+	name = Brice Maron
+	email = bmaron@naturalsciences.be
+[core]
+	editor = vim
+	excludesfile = /home/bmaron/.gitignore
+[color]
+	diff = auto
+	interactive = auto
+	branch = auto
+	status = auto
+[alias]
+	ci = commit
+	st = status
+	co = checkout
+	staged = diff --cached
