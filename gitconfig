@@ -14,3 +14,5 @@
 	st = status
 	co = checkout
 	staged = diff --cached
+        uncommit = reset --soft HEAD^
+        wdiff = diff --color-words
