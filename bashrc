@@ -27,5 +27,6 @@ export LESS_TERMCAP_us=$'\E[01;32m'    # début de souligné
 export LESS_TERMCAP_ue=$'\E[0m'        # fin
 
 
-export PAGER=most
+export PAGER=less
+export LESS="-FRSX"
 export EDITOR=vim

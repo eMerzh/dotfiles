@@ -16,3 +16,7 @@
 	staged = diff --cached
         uncommit = reset --soft HEAD^
         wdiff = diff --color-words
+[grep]
+	lineNumber= true
+[color]
+        ui = on
