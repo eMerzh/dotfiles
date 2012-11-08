@@ -53,7 +53,20 @@ if [[ ${1#/tmp/kde} != $1 || ${1#/var/tmp/kdecache} != $1 ]]; then
 fi
 
 # call functions based on order defined above
+oldname=$1
+fname=$(echo $1 |  sed -e 's/^file:\///')
+file=$(echo $fname | sed -e 's/:.*//g')
+line=$(echo $fname | cut -d ':' -f2)
+
+if [[ "$oldname" != "$fname" ]]; then
+ file="file:/$file"
+fi
+if [[ "$line" = "$fname" ]]; then
+ echo "WOOO"
+ line=$2
+fi
+
 for i in `seq 1 ${#order[@]}`;
 do
-  ${order[$i-1]} "$1" "$2" $&& exit 0
+  ${order[$i-1]} "$file" "$line" $&& exit 0
 done
