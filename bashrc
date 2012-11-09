@@ -30,3 +30,9 @@ export LESS_TERMCAP_ue=$'\E[0m'        # fin
 export PAGER=less
 export LESS="-FRSX"
 export EDITOR=vim
+
+
+function mkdir
+{
+  command mkdir $1 && cd $1
+}

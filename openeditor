@@ -25,6 +25,9 @@
 # ./editor file://brol
 # ./editor file://brol 12
 # ./editor file://brol:12
+# ./editor file://brol
+# ./editor /var/brol:12
+# ./editor editor://open/?url=file:///brol/file:12
 
 
 order=(
