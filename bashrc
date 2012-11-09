@@ -46,9 +46,12 @@ export HISTTIMEFORMAT
 export HISTIGNORE="ls:ls *:cd:cd -:pwd;exit:date:* --help"
 
 
-function mkdir
-{
-  command mkdir $1 && cd $1
+function md() {
+  mkdir -p "$@" && cd "$@"
+}
+
+function f() {
+    find . -name "$1"
 }
 
 function owncloud
