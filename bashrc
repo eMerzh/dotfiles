@@ -31,8 +31,30 @@ export PAGER=less
 export LESS="-FRSX"
 export EDITOR=vim
 
+# Don’t clear the screen after quitting a manual pages
+export MANPAGER="less -X"
+
+# Larger bash history (allow 32³ entries; default is 500)
+export HISTSIZE=32768
+export HISTFILESIZE=$HISTSIZE
+export HISTCONTROL=ignoredups
+
+HISTTIMEFORMAT='%F %T '
+export HISTTIMEFORMAT
+
+# Make some commands not show up in history
+export HISTIGNORE="ls:ls *:cd:cd -:pwd;exit:date:* --help"
+
 
 function mkdir
 {
   command mkdir $1 && cd $1
+}
+
+function owncloud
+{
+  own_url="http://my.bmaron.net"
+  own_usr="eMerzh"
+  curl -u own_usr -T $1 "$own_url/remote.php/webdav/$1"
+  xdg-open "$own_url?app=files&dir=$1"
 }
