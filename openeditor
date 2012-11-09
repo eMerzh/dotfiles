@@ -15,12 +15,28 @@
 # quanta_new_tab
 # kate_new_tab
 #
+# for Protocol in Firefox go to about config
+# Right-click -> New -> Boolean -> Name:
+# network.protocol-handler.expose.foo -> Value -> false
+# (Replace foo with the protocol you're specifying) 
+# Then click a link and choose your editor \o/
+#
+# Url accepted :
+# ./editor file://brol
+# ./editor file://brol 12
+# ./editor file://brol:12
+
+
 order=(
+#   debug
   kate_new_tab
   kwrite_new_win
 )
 # nothing should be changed below
 
+function debug {
+  echo "file: '$1' line: '$2'"
+}
 # new kate tab
 function kate_new_tab {
   isrunning kate || return 1
@@ -44,27 +60,28 @@ function isrunning {
   return `[[ ${pid[0]} ]]`
 }
 
-# cached konqueror file
-if [[ ${1#/tmp/kde} != $1 || ${1#/var/tmp/kdecache} != $1 ]]; then
-#echo "cache" >> /home/milian/.bin/editorlog
-  # cached file
-  kwrite "$1"
-  exit
+# If we are comming from editor://open?url=file://brol:line
+url=$1
+if [[ "$1" =~ ^editor:.* ]]; then
+    url=$(echo $1 |  sed -e 's/.*url=//')
 fi
 
-# call functions based on order defined above
-oldname=$1
-fname=$(echo $1 |  sed -e 's/^file:\///')
+oldname=$url
+#remove protocol for sed
+fname=$(echo $url |  sed -e 's/^file:\///')
 file=$(echo $fname | sed -e 's/:.*//g')
 line=$(echo $fname | cut -d ':' -f2)
 
+#re set protocol if removed
 if [[ "$oldname" != "$fname" ]]; then
  file="file:/$file"
 fi
+
 if [[ "$line" = "$fname" ]]; then
- echo "WOOO"
  line=$2
 fi
+
+# call functions based on order defined above
 
 for i in `seq 1 ${#order[@]}`;
 do
