@@ -33,6 +33,7 @@
 order=(
 #   debug
   kate_new_tab
+  kate_new_win
   kwrite_new_win
 )
 # nothing should be changed below
@@ -55,6 +56,18 @@ function kate_new_win {
 function kwrite_new_win {
   echo "open file in kwrite:"
   kwrite "$1"
+}
+
+# new kdevelop window
+function kdevelop_new_win_tab {
+  echo "open file in kdevelop:"
+  id=$(qdbus | grep kdevelop)
+  file=$(readlink -f $1)
+  if [[ ${id} ]]; then
+    qdbus $id /org/kdevelop/DocumentController org.kdevelop.DocumentController.openDocumentSimple $file
+  else
+    kdevelop $1
+  fi
 }
 
 # check if a process is running
