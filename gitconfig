@@ -1,6 +1,6 @@
 [user]
 	name = Brice Maron
-	email = bmaron@naturalsciences.be
+	email = brice@bmaron.net
 [core]
 	editor = vim
 	excludesfile = ~/.gitignore
