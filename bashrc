@@ -61,3 +61,6 @@ function owncloud
   curl -u own_usr -T $1 "$own_url/remote.php/webdav/$1"
   xdg-open "$own_url?app=files&dir=$1"
 }
+function bak() {
+  cp "$1" "$1_`date +%Y-%m-%d_%H-%M-%S`" ; 
+}
