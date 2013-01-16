@@ -8,7 +8,7 @@ alias grep='grep --color=auto'
 
 #PS1='[\u@\h \W]\$ '
 #PS1='\[\e[1;32m\][\u@\h \W]\$\[\e[0m\] '
-PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
+PS1='(\A)${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
 
 #Show all possib when ambigous (only one tab)
 set show-all-if-ambiguous on
