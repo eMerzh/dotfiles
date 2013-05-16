@@ -40,3 +40,6 @@ set laststatus=2
 
 " Format the status line
 set statusline=\%F%m%r%h\ %w\ \ CWD:\ %r%{getcwd()}%h\ \ \ Line:\ %l
+
+"disable creation of comment on past
+autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o

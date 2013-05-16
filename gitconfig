@@ -19,6 +19,9 @@
         # Display nice sumary when doing a pull --rebase
         up = !sh -c 'git pull --rebase --prune && git log --pretty=format:\"%Cred%ae %Creset- %C(yellow)%s %Creset(%ar)\" HEAD@{1}..'
         lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --
+        out = log --pretty=oneline --abbrev-commit --graph ..@{u}
+        in = !git fetch && git log --pretty=oneline --abbrev-commit --graph @{u}..
+
 [grep]
 	lineNumber= true
 [color]
