@@ -11,6 +11,10 @@ HISTFILE=~/.histfile
 HISTSIZE=10000
 SAVEHIST=10000
 bindkey -e
+
+bindkey ';5D' backward-word
+bindkey ';5C' forward-word
+
 # End of lines configured by zsh-newuser-install
 # The following lines were added by compinstall
 zstyle :compinstall filename '/home/bmaron/.zshrc'
