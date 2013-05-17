@@ -28,3 +28,5 @@
         ui = on
 [github]
         user = eMerzh
+[push]
+	default = simple
