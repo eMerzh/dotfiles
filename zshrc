@@ -6,6 +6,9 @@ alias cp='nocorrect cp '
 alias mv='nocorrect mv '
 alias mkdir='nocorrect mkdir '
 
+alias up='nocorrect yaourt -Suya'
+source .zsh/plugins/systemd.plugin.zsh
+
 # Lines configured by zsh-newuser-install
 HISTFILE=~/.histfile
 HISTSIZE=10000
